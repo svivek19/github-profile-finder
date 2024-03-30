@@ -31,7 +31,7 @@ export default function InputElement() {
           <input
             type="search"
             id="default-search"
-            className="block w-full outline-none p-4 ps-10 text-md font-semibold border border-gray-300 rounded-md bg-slate-900 text-white"
+            className="block w-full outline-none p-4 ps-10 text-md font-semiboldrounded-md bg-slate-900 rounded-md text-white"
             placeholder="Search GitHub Username..."
             required
           />
