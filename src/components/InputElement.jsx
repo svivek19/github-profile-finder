@@ -20,7 +20,6 @@ export default function InputElement() {
         throw new Error("User not found");
       })
       .then((data) => {
-        console.log(data);
         setUserData(data);
       })
       .catch((error) => {
@@ -77,7 +76,9 @@ export default function InputElement() {
         </div>
       </form>
 
-      <div>{/* <UserCard userData={userData} /> */}</div>
+      <div>
+        <UserCard userData={userData} />
+      </div>
     </div>
   );
 }
