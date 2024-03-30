@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function InputElement() {
+  const [input, setInput] = useState("");
+  const [userData, setUserData] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    if (input.trim() === "") {
+      return;
+    }
+
+    fetch(`https://api.github.com/users/${input}`)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("User not found");
+      })
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+        setUserData(null);
+      });
+
+    setInput("");
+  };
+
   return (
     <div>
       <form className="w-11/12 md:w-5/6 mx-auto">
@@ -34,10 +62,13 @@ export default function InputElement() {
             className="block w-full outline-none p-4 ps-10 text-md font-semiboldrounded-md bg-slate-900 rounded-md text-white"
             placeholder="Search GitHub Username..."
             required
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
           />
           <button
             type="submit"
             className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={handleSearch}
           >
             Search
           </button>
