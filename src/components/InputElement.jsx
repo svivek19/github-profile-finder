@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import UserCard from "./UserCard";
 
 export default function InputElement() {
   const [input, setInput] = useState("");
@@ -19,6 +20,7 @@ export default function InputElement() {
         throw new Error("User not found");
       })
       .then((data) => {
+        console.log(data);
         setUserData(data);
       })
       .catch((error) => {
@@ -74,6 +76,8 @@ export default function InputElement() {
           </button>
         </div>
       </form>
+
+      <div>{/* <UserCard userData={userData} /> */}</div>
     </div>
   );
 }

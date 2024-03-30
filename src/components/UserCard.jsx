@@ -3,7 +3,8 @@ import user from "../assets/user.png";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaLink } from "react-icons/fa";
 
-const UserCard = () => {
+const UserCard = ({ userData }) => {
+  console.log(userData);
   return (
     <div className="w-11/12 md:w-5/6 p-5 text-white mx-auto bg-slate-900 my-5 rounded-md">
       <div className="flex mt-2 mb-5">
