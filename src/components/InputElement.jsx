@@ -3,7 +3,7 @@ import React from "react";
 export default function InputElement() {
   return (
     <div>
-      <form className="w-5/6 mx-auto">
+      <form className="w-11/12 md:w-5/6 mx-auto">
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only"
